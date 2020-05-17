@@ -8,7 +8,17 @@ export class ControllerCommonHome extends Controller {
   public async home() {
     await this.$context.config.load('default')
     this.$context.language.load('common/home')
-    this.$context.response.setOutput({ "home": this.$context.language.get('text_title'), "config":  this.$context.config.get('testConfig') });
+    const {hash, salt} = this.$context.crypto.getHashPassword('1233456')
+    this.$context.response.setOutput({ "home": this.$context.language.get('text_title'), "config":  this.$context.config.get('testConfig'), hash, salt });
+  }
+  @GET("/mail-test")
+  public async mailtest() {
+    this.$context.mail.setFrom('email@email.com')
+    this.$context.mail.setTo('email@email.com')
+    this.$context.mail.setSubject('Subject')
+    this.$context.mail.setHtml('Html mail')
+    await this.$context.mail.send()
+    this.$context.response.setOutput({ "mail": "test" });
   }
   @GET("/test")
   public async test() {
