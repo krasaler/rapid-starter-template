@@ -22,7 +22,6 @@ export class ControllerCommonHome extends Controller {
 
   @POST("/test")
   public homePost() {
-    console.log(this.$context.request.get);
     this.$context.response.setOutput(this.$context.request.post);
   }
 }
