@@ -6,7 +6,8 @@ import {
 export class ControllerCommonHome extends Controller {
   @GET("/home")
   public async home() {
-    this.$context.response.setOutput({ "home": 'home' });
+    await this.$context.language.load('common/home')
+    this.$context.response.setOutput({ "home": this.$context.language.get('text_title') });
   }
   @GET("/test")
   public async test() {
