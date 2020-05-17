@@ -1,4 +1,4 @@
-import { Model } from "https://raw.githubusercontent.com/krasaler/rapid/master/mod.ts";
+import { Model } from "rapid";
 
 export class ModelCommonHome extends Model {
   public async test() {

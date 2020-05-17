@@ -2,11 +2,10 @@ import {
   GET,
   Controller,
   POST,
-} from "https://raw.githubusercontent.com/krasaler/rapid/master/mod.ts";
+} from "rapid";
 export class ControllerCommonHome extends Controller {
   @GET("/test")
   public async home() {
-    console.log(Object.keys(this.$context))
     this.$context.cache.set("test", { "1": "2" });
     this.$context.cache.get("test");
     await this.$context.load.model("common/home");
