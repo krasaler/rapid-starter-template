@@ -4,8 +4,12 @@ import {
   POST,
 } from "rapid";
 export class ControllerCommonHome extends Controller {
-  @GET("/test")
+  @GET("/home")
   public async home() {
+    this.$context.response.setOutput({ "home": 'home' });
+  }
+  @GET("/test")
+  public async test() {
     this.$context.cache.set("test", { "1": "2" });
     this.$context.cache.get("test");
     await this.$context.load.model("common/home");

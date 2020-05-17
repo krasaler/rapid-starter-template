@@ -2,6 +2,4 @@ import {start} from "rapid"
 /**
  * Запуск АПИ
  */
-await start({
-  db: {},
-});
+await start();
